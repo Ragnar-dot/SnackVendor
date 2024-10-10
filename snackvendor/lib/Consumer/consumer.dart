@@ -34,13 +34,13 @@ class Consumer {
 
       // Berechne Wechselgeld
       double change = insertedAmount - selectedProduct!.price;
-      print('Wechselgeld: $change DodgeCoin');
+      ('Wechselgeld: $change DodgeCoin');
 
       // Rücksetzen nach dem Kauf
       insertedAmount = 0.0;
       selectedProduct = null;
     } else {
-      print('Nicht genügend Geld eingeworfen');
+      ('Nicht genügend Geld eingeworfen');
     }
   }
 

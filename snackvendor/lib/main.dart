@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:snackvendor/Coin/coin_screen.dart';
-import 'package:snackvendor/Owner/owner_Screen.dart';
-import 'package:snackvendor/VendorMachine/vendingMachineScreen.dart';
-
-
-
-// Importiere Provider für Transaktionen, Produkte und Münzen
+import 'package:snackvendor/Owner/owner_screen.dart';
+import 'package:snackvendor/VendorMachine/vending_machine_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -34,53 +30,58 @@ class MyHomePage extends StatelessWidget {
 
   final String title;
 
-@override
-Widget build(BuildContext context) {
-  return Scaffold(
-    appBar: AppBar(
-      title: Text(title),
-    ),
-    body: const Stack(
-      children: [
-        // Hauptbildschirm: ProductScreen als Hintergrund
-        Positioned.fill(
-          child: ProductScreen(),
-        ),
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: Stack(
+        children: [
+          // ProductScreen als Hauptbildschirm-Hintergrund
+          Positioned(
+            top: 200,
+            left: 150,
+            right: 150,
+            bottom: 200,
+            
+            child: Container(
+              child: const ProductScreen(),
+            ),
+          ),
+      
 
+          // OwnerScreen: Frei positionierbar
+          Positioned(
+            top: 100,  // Y-Position (oben)
+            right: 200, // X-Position (rechts)
+            child: Container(
+              width: 190,  // Breite des OwnerScreen
+              height: 100, // Höhe des OwnerScreen
+              decoration: BoxDecoration(
+                border: Border.all(color: const Color.fromARGB(183, 255, 0, 0)),
+                color: const Color.fromARGB(2, 255, 255, 255).withOpacity(0.2),
+              ),
+              child: const OwnerScreen(),
+            ),
+          ),
 
-
-
-
-        // Owner-Zugang ebenfalls anpassbar
-        Positioned(
-          top: 400, // Am oberen Rand positioniert
-          right: 100,
-          width: 200, // Breite kann angepasst werden
-          height: 100, // Höhe kann angepasst werden
-          child: OwnerScreen(),
-
-        ),
-
-
-
-
-
-
-        // Münzverwaltung und Transaktionen in einem anpassbaren Bereich
-        Positioned(
-          
-          bottom: 0, // Am unteren Rand positioniert
-          left: 10,
-          right: 800,
-          height: 800, // Höhe kann angepasst werden
-          child: CoinScreen(),
-        ),
-
-
-
-      ],
-    ),
-  );
+          // CoinScreen: Frei positionierbar
+          Positioned(
+            bottom: 500,  // Y-Position (unten)
+            left: 10,    // X-Position (links)
+            child: Container(
+              width: 150,  // Breite des CoinScreen
+              height: 500, // Höhe des CoinScreen
+              decoration: BoxDecoration(
+                border: Border.all(color: const Color.fromARGB(255, 0, 0, 0)),
+                color: const Color.fromARGB(255, 234, 234, 234).withOpacity(0.9),
+              ),
+              child: const CoinScreen(),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
-}
-
