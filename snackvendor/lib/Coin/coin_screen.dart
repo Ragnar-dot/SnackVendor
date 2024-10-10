@@ -19,7 +19,8 @@ class CoinScreen extends ConsumerWidget {
         Column(
           children: coins.map((coin) {
             return SizedBox(
-              width: 90,
+              width: 90, 
+              
               height: 90,
               child: IconButton(
                 icon: Image.asset(coin.imageUrl),

@@ -6,6 +6,7 @@ class OwnerScreen extends ConsumerStatefulWidget {
   const OwnerScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _OwnerScreenState createState() => _OwnerScreenState();
 }
 
@@ -55,6 +56,12 @@ class _OwnerScreenState extends ConsumerState<OwnerScreen> {
             ),
             const SizedBox(height: 5),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 14, 251, 2), // Hintergrundfarbe des Buttons
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10), // Runde Ecken
+                ),
+              ),
               onPressed: _checkPin,
               child: const Text('Bestätigen', style: TextStyle(fontSize: 16)),
             ),

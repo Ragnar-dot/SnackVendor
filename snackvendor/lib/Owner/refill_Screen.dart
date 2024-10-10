@@ -25,7 +25,7 @@ class RefillScreen extends ConsumerWidget {
               'Produkt Übersicht:',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            Expanded(
+            Flexible(
               child: ListView.builder(
                 itemCount: stackManager.products.length,
                 itemBuilder: (context, index) {
@@ -48,7 +48,7 @@ class RefillScreen extends ConsumerWidget {
               'Coins Auffüllen:',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            Expanded(
+            Flexible(
               child: ListView.builder(
                 itemCount: stackManager.coinInventory.keys.length,
                 itemBuilder: (context, index) {

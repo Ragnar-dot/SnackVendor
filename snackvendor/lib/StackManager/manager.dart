@@ -26,7 +26,7 @@ class StackManager {
   // Produkt nach ID suchen
 Product getProductById(int productId) {
   if (productId < 1 || productId > 21) {
-    print('Die ID $productId ist ungültig. Es gibt nur Produkte mit IDs von 1 bis 21.');
+    ('Die ID $productId ist ungültig. Es gibt nur Produkte mit IDs von 1 bis 21.');
     throw Exception('Ungültige Produkt-ID');
   }
 
@@ -42,16 +42,16 @@ Product getProductById(int productId) {
   void restockProduct(int productId, int amount) {
     final product = getProductById(productId);
     product.quantity += amount;
-    print('${product.name} wurde um $amount Einheiten aufgefüllt.');
+    ('${product.name} wurde um $amount Einheiten aufgefüllt.');
     }
 
   // Münzen auffüllen
   void restockCoin(double coinValue, int amount) {
     if (_coinInventory.containsKey(coinValue)) {
       _coinInventory[coinValue] = (_coinInventory[coinValue] ?? 0) + amount;
-      print('$amount Münzen mit Wert $coinValue DodgeCoin hinzugefügt.');
+      ('$amount Münzen mit Wert $coinValue DodgeCoin hinzugefügt.');
     } else {
-      print('Münze mit Wert $coinValue nicht gefunden.');
+      ('Münze mit Wert $coinValue nicht gefunden.');
     }
   }
 
@@ -60,9 +60,9 @@ Product getProductById(int productId) {
     final product = getProductById(productId);
     if (product.quantity > 0) {
       product.quantity--;
-      print('Produkt ${product.name} wurde um 1 reduziert.');
+      ('Produkt ${product.name} wurde um 1 reduziert.');
     } else {
-      print('Produkt ausverkauft oder nicht vorhanden.');
+      ('Produkt ausverkauft oder nicht vorhanden.');
     }
   }
 
@@ -70,9 +70,9 @@ Product getProductById(int productId) {
   void reduceCoinStock(double coinValue) {
     if (_coinInventory.containsKey(coinValue) && _coinInventory[coinValue]! > 0) {
       _coinInventory[coinValue] = _coinInventory[coinValue]! - 1;
-      print('Münze mit Wert $coinValue DodgeCoin wurde ausgegeben.');
+      ('Münze mit Wert $coinValue DodgeCoin wurde ausgegeben.');
     } else {
-      print('Nicht genügend Münzen im Wert von $coinValue vorhanden.');
+      ('Nicht genügend Münzen im Wert von $coinValue vorhanden.');
     }
   }
 
@@ -108,7 +108,7 @@ Product getProductById(int productId) {
         }
       }
     } else {
-      print('Nicht genug Münzen für das Wechselgeld.');
+      ('Nicht genug Münzen für das Wechselgeld.');
     }
     return change;
   }
